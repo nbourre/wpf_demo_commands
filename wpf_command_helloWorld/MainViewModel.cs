@@ -1,15 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
 namespace wpf_command_helloWorld
 {
     class MainViewModel : BaseViewModel
     {
         private string _message;
+        private bool _canExecute = true;
+
+        public bool CanExecute {
+            get => _canExecute;
+            set
+            {
+                _canExecute = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         public string Message {
             get => _message;
@@ -29,7 +35,7 @@ namespace wpf_command_helloWorld
 
         private bool CanShowMessage(string obj)
         {
-            return true;
+            return CanExecute;
         }
 
         private void ShowMessage(string obj)
