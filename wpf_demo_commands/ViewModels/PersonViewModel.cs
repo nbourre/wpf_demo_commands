@@ -8,11 +8,9 @@ namespace wpf_demo_commands.ViewModels
 {
     class PersonViewModel
     {
-        private ObservableCollection<Person> _personList;
-
         public PersonViewModel()
         {
-            _personList = new ObservableCollection<Person>()
+            Persons = new ObservableCollection<Person>()
         {
             new Person(){Name="Nicolas", Address="Shawinigan"},
             new Person(){Name="Sylvain",Address="Trois-Rivières"}
@@ -20,11 +18,7 @@ namespace wpf_demo_commands.ViewModels
 
         }
 
-        public ObservableCollection<Person> Persons
-        {
-            get { return _personList; }
-            set { _personList = value; }
-        }
+        public ObservableCollection<Person> Persons { get; set; }
 
         private ICommand mUpdater;
         
